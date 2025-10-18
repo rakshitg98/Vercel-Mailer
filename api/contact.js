@@ -34,6 +34,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'Invalid input' });
   }
 
+  console.log(process.env.SMTP_USER, process.env.SMTP_PASS);
+
   // Create transporter using GoDaddy Workspace SMTP
   const transporter = nodemailer.createTransport({
     host: 'smtpout.secureserver.net',

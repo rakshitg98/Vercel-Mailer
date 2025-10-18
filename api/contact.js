@@ -26,6 +26,7 @@ function setCorsHeaders(res, origin) {
 export default async function handler(req, res) {
   const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
   // For security prefer exact origin (e.g., https://username.github.io)
+  console.log('Request origin:', req.headers.origin);
   const requestOrigin = req.headers.origin || allowedOrigin;
   const originToUse = allowedOrigin === '*' ? '*' : (requestOrigin === allowedOrigin ? allowedOrigin : '');
 
